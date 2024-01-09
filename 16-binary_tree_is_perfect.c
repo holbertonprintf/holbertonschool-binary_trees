@@ -8,18 +8,18 @@
   */
 size_t binary_tree_height(const binary_tree_t *tree)
 {
-  size_t right_side, left_side;
-  if (tree == NULL || (tree->left == NULL && tree->right == NULL))
-    return (0);
+	size_t right_side, left_side;
 
-  left_side = binary_tree_height(tree->left);
-  right_side = binary_tree_height(tree->right);
+	if (tree == NULL || (tree->left == NULL && tree->right == NULL))
+		return (0);
 
-  if (left_side > right_side)
-    return (left_side + 1);
-  return (right_side + 1);
+	left_side = binary_tree_height(tree->left);
+	right_side = binary_tree_height(tree->right);
+
+	if (left_side > right_side)
+		return (left_side + 1);
+	return (right_side + 1);
 }
-
 
 /**
   * binary_tree_size - measures the size
@@ -30,12 +30,13 @@ size_t binary_tree_height(const binary_tree_t *tree)
   */
 size_t binary_tree_size(const binary_tree_t *tree)
 {
-  size_t count = 0;
-  if (tree == NULL)
-    return (0);
+	size_t count = 0;
 
-  count = 1 + binary_tree_size(tree->left) + binary_tree_size(tree->right);
-  return (count);
+	if (tree == NULL)
+		return (0);
+
+	count = 1 + binary_tree_size(tree->left) + binary_tree_size(tree->right);
+	return (count);
 }
 
 /**
@@ -47,11 +48,11 @@ size_t binary_tree_size(const binary_tree_t *tree)
   */
 int _base_tree(int base, int exponent)
 {
-  int i = 0, value = base;
-  
-  for (; i < exponent; ++i)
-    value *= base;
-  return (value);
+	int i = 0, value = base;
+
+	for (; i < exponent; ++i)
+		value *= base;
+	return (value);
 }
 
 /**
@@ -62,15 +63,15 @@ int _base_tree(int base, int exponent)
   */
 int binary_tree_is_perfect(const binary_tree_t *tree)
 {
-  int size, height = 0;
+	int size, height = 0;
 
-  if (tree == NULL)
-    return (0);
+	if (tree == NULL)
+		return (0);
 
-  height = binary_tree_height(tree);
-  size = binary_tree_size(tree);
+	height = binary_tree_height(tree);
+	size = binary_tree_size(tree);
 
-  if (size == _base_tree(2, height) - 1)
-    return (1);
-  return (0);
+	if (size == _base_tree(2, height) - 1)
+		return (1);
+	return (0);
 }
